@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VMC.SiteMaster" EnableViewState="true" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - VMC</title>
+
+    <link href="~/Content/themes/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/themes/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/themes/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="~/Content/themes/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet">
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">
+        <script src="<%: ResolveUrl("~/Content/themes/js/scripts.js") %>"></script>
+    </asp:PlaceHolder>
+    <%-- tag --%>
+    <asp:PlaceHolder runat="server">
+        <script type="text/javascript" src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/docs/js/jquery.min.js") %>"></script>
+        <script type="text/javascript" src="<%: ResolveUrl("~/Content/Select2/select2.js") %>"></script>
+
+        <script type="text/javascript" src="<%: ResolveUrl("~/Content/Select2/prettify.js") %>"></script>
+        <script type="text/javascript" src="<%: ResolveUrl("~/Content/Select2/placeholders.js") %>"></script>
+        <script type="text/javascript" src="<%: ResolveUrl("~/Content/Select2/es.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/Content/themes/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/Select2/select2.css" type="text/css" rel="stylesheet">
+    <%-- treeview --%>
+    <script type="text/javascript" src="<%: ResolveUrl("~/Content/themes/js/bootstrap-treeview.js") %>"></script>
+    <%-- common --%>
+    <link href="~/Content/themes/css/style.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body class="bg">
+    <form runat="server">
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">VMC CMS</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">Kênh</a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quản lý chung<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Actor">Diễn viên</a></li>
+                                    <li><a href="/Director">Đạo diễn</a></li>
+                                    <li><a href="/Country">Quốc gia</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Thể loại<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Category/Movie">Thể loại phim</a></li>
+                                    <li><a href="/Category/Video">Thể loại video</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">VODs<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Movie">Quản lý phim</a></li>
+                                    <li><a href="/Video">Quản lý video</a></li>
+                                </ul>
+                            </li>
+                            <% if(objUser.roles.Equals("1")){ %>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Account/Manage">Người dùng</a></li>
+                                    <li><a href="/Role">Phân quyền</a></li>
+                                </ul>
+                            </li>
+                            <%} %>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user">
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <img width="34" height="34" src="<%=objUser.avatar %>">
+                                    <%= objUser.fullname %>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="/Account/accountinfo">
+                                            <i class="fa fa-user"></i>
+                                            Thông tin cá nhân
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/changepass">
+                                            <i class="fa fa-gear"></i>
+                                            Thay đổi mật khẩu
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/Logout">
+                                            <i class="fa fa-sign-out"></i>
+                                            Truy xuất
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="cleared"></div>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </nav>
+        </header>
+        <div class="container-fluid main-container breadcrumd-web">
+        </div>
+        <div class="container-fluid main-container">
+            <div id="body">
+                <% if(Request.QueryString["success_up"] != null){ %>
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button class="close" aria-label="Close" data-dismiss="alert" type="button">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    Thông tin đã được cập nhật thành công.
+                </div>
+                <% } %>
+                <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                <section class="content-wrapper main-content clear-fix">
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </section>
+            </div>
+        </div>
+        <footer>
+            <asp:PlaceHolder runat="server">
+                <script src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/docs/js/jquery.min.js") %>"></script>
+                <script src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/docs/js/bootstrap.min.js") %>"></script>
+                <script src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/docs/js/highlight.js") %>"></script>
+                <script src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/dist/js/bootstrap-switch.js") %>"></script>
+                <script src="<%: ResolveUrl("~/Content/themes/bootstrap-switch/docs/js/main.js") %>"></script>
+                <%-- custom tag --%>
+                <script type="text/javascript" src="<%: ResolveUrl("~/Content/Select2/custom.js") %>"></script>
+            </asp:PlaceHolder>
+        </footer>
+    </form>
+</body>
+</html>

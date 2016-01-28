@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF790EBE-1C5C-4F2C-ADA3-2DB123594590}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VMC</RootNamespace>
+    <AssemblyName>VMC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.8.2\lib\net40\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.24\lib\net40\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Membership.OpenAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Membership.OpenAuth.2.0.1\lib\net40\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.0\lib\net40\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Accountinfo.aspx" />
+    <Content Include="Account\Changepass.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Actor\Add.aspx" />
+    <Content Include="Actor\Default.aspx" />
+    <Content Include="Actor\Edit.aspx" />
+    <Content Include="Category\Add.aspx" />
+    <Content Include="Category\AddM.aspx" />
+    <Content Include="Category\Edit.aspx" />
+    <Content Include="Category\Movie.aspx" />
+    <Content Include="Category\Video.aspx" />
+    <Content Include="Content\Select2\ak.png" />
+    <Content Include="Content\Select2\analytics.js" />
+    <Content Include="Content\Select2\anchor.js" />
+    <Content Include="Content\Select2\bootstrap.css" />
+    <Content Include="Content\Select2\bootstrap.js" />
+    <Content Include="Content\Select2\custom.js" />
+    <Content Include="Content\Select2\es.js" />
+    <Content Include="Content\Select2\Examples - Select2.htm" />
+    <Content Include="Content\Select2\font-awesome.css" />
+    <Content Include="Content\Select2\jquery.js" />
+    <Content Include="Content\Select2\placeholders.js" />
+    <Content Include="Content\Select2\prettify.js" />
+    <Content Include="Content\Select2\select2-bootstrap.css" />
+    <Content Include="Content\Select2\select2.css" />
+    <Content Include="Content\Select2\select2.js" />
+    <Content Include="Content\themes\bootstrap-select\.gitignore" />
+    <Content Include="Content\themes\bootstrap-select\dist\css\bootstrap-select.css" />
+    <Content Include="Content\themes\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\bootstrap-select.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ar_AR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ar_AR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-bg_BG.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-bg_BG.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-cs_CZ.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-cs_CZ.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-da_DK.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-da_DK.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-de_DE.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-de_DE.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-en_US.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-en_US.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-es_CL.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-es_CL.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-eu.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-eu.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fa_IR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fa_IR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fi_FI.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fi_FI.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fr_FR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-fr_FR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-hu_HU.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-hu_HU.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-id_ID.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-id_ID.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-it_IT.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-it_IT.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ko_KR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ko_KR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-nb_NO.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-nb_NO.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-nl_NL.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-nl_NL.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pl_PL.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pl_PL.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pt_BR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pt_BR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pt_PT.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-pt_PT.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ro_RO.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ro_RO.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ru_RU.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ru_RU.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sk_SK.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sk_SK.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sl_SI.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sl_SI.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sv_SE.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-sv_SE.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-tr_TR.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-tr_TR.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ua_UA.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-ua_UA.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-zh_CN.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-zh_CN.min.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-zh_TW.js" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\i18n\defaults-zh_TW.min.js" />
+    <Content Include="Content\themes\bootstrap-select\docs\custom_theme\base.html" />
+    <Content Include="Content\themes\bootstrap-select\docs\custom_theme\js\base.js" />
+    <Content Include="Content\themes\bootstrap-select\docs\custom_theme\nav.html" />
+    <Content Include="Content\themes\bootstrap-select\docs\custom_theme\toc.html" />
+    <Content Include="Content\themes\bootstrap-select\docs\docs\css\custom.css" />
+    <Content Include="Content\themes\bootstrap-select\Gruntfile.js" />
+    <Content Include="Content\themes\bootstrap-select\js\bootstrap-select.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-ar_AR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-bg_BG.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-cs_CZ.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-da_DK.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-de_DE.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-en_US.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-es_CL.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-eu.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-fa_IR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-fi_FI.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-fr_FR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-hu_HU.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-id_ID.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-it_IT.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-ko_KR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-nb_NO.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-nl_NL.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-pl_PL.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-pt_BR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-pt_PT.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-ro_RO.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-ru_RU.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-sk_SK.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-sl_SI.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-sv_SE.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-tr_TR.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-ua_UA.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-zh_CN.js" />
+    <Content Include="Content\themes\bootstrap-select\js\i18n\defaults-zh_TW.js" />
+    <Content Include="Content\themes\bootstrap-select\test.html" />
+    <Content Include="Content\themes\bootstrap-switch\.gitignore" />
+    <Content Include="Content\themes\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.css" />
+    <Content Include="Content\themes\bootstrap-switch\dist\css\bootstrap2\bootstrap-switch.min.css" />
+    <Content Include="Content\themes\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.css" />
+    <Content Include="Content\themes\bootstrap-switch\dist\css\bootstrap3\bootstrap-switch.min.css" />
+    <Content Include="Content\themes\bootstrap-switch\dist\js\bootstrap-switch.js" />
+    <Content Include="Content\themes\bootstrap-switch\dist\js\bootstrap-switch.min.js" />
+    <Content Include="Content\themes\bootstrap-switch\docs\css\bootstrap.min.css" />
+    <Content Include="Content\themes\bootstrap-switch\docs\css\highlight.css" />
+    <Content Include="Content\themes\bootstrap-switch\docs\css\main.css" />
+    <Content Include="Content\themes\bootstrap-switch\docs\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\themes\bootstrap-switch\docs\js\bootstrap.min.js" />
+    <Content Include="Content\themes\bootstrap-switch\docs\js\highlight.js" />
+    <Content Include="Content\themes\bootstrap-switch\docs\js\jquery.min.js" />
+    <Content Include="Content\themes\bootstrap-switch\docs\js\main.js" />
+    <Content Include="Content\themes\bootstrap-switch\documentation-2.html" />
+    <Content Include="Content\themes\bootstrap-switch\events.html" />
+    <Content Include="Content\themes\bootstrap-switch\examples.html" />
+    <Content Include="Content\themes\bootstrap-switch\index.html" />
+    <Content Include="Content\themes\bootstrap-switch\main.html" />
+    <Content Include="Content\themes\bootstrap-switch\methods.html" />
+    <Content Include="Content\themes\bootstrap-switch\options.html" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\css\highlight.css" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\js\highlight.js" />
+    <Content Include="Content\themes\bootstrap-switch\test.html" />
+    <Content Include="Content\themes\bootstrap-switch\test\bootstrap-switch.js" />
+    <Content Include="Content\themes\bootstrap-switch\test\bootstrap-switch.tests.js" />
+    <Content Include="Content\themes\bootstrap\assets\brand\bootstrap-outline.svg" />
+    <Content Include="Content\themes\bootstrap\assets\brand\bootstrap-punchout.svg" />
+    <Content Include="Content\themes\bootstrap\assets\brand\bootstrap-solid.svg" />
+    <Content Include="Content\themes\bootstrap\assets\css\docs.min.css" />
+    <Content Include="Content\themes\bootstrap\assets\css\src\docs.css" />
+    <Content Include="Content\themes\bootstrap\assets\css\src\pygments-manni.css" />
+    <Content Include="Content\themes\bootstrap\assets\flash\ZeroClipboard.swf" />
+    <Content Include="Content\themes\bootstrap\assets\img\components.png" />
+    <Content Include="Content\themes\bootstrap\assets\img\devices.png" />
+    <Content Include="Content\themes\bootstrap\assets\img\sass-less.png" />
+    <Content Include="Content\themes\bootstrap\assets\js\customize.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\docs.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\ie8-responsive-file-warning.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\raw-files.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\src\application.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\src\customizer.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\autoprefixer.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\Blob.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\FileSaver.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\holder.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\jszip.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\less.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\uglify.min.js" />
+    <Content Include="Content\themes\bootstrap\assets\js\vendor\ZeroClipboard.min.js" />
+    <Content Include="Content\themes\bootstrap\css\carousel.css" />
+    <Content Include="Content\themes\bootstrap\css\style.css" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\themes\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\themes\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\themes\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\themes\bootstrap\dist\js\npm.js" />
+    <Content Include="Content\themes\bootstrap\js\images\bx_loader.gif" />
+    <Content Include="Content\themes\bootstrap\js\images\controls.png" />
+    <Content Include="Content\themes\bootstrap\js\jquery.bxslider.css" />
+    <Content Include="Content\themes\bootstrap\js\jquery.bxslider.js" />
+    <Content Include="Content\themes\bootstrap\js\jquery.bxslider.min.js" />
+    <Content Include="Content\themes\bootstrap\js\plugins\jquery.easing.1.3.js" />
+    <Content Include="Content\themes\bootstrap\js\plugins\jquery.fitvids.js" />
+    <Content Include="Content\themes\css\font-awesome.css" />
+    <Content Include="Content\themes\css\font-awesome.min.css" />
+    <Content Include="Content\themes\css\login.css" />
+    <Content Include="Content\themes\css\style.css" />
+    <Content Include="Content\themes\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\themes\images\bg-footer.jpg" />
+    <Content Include="Content\themes\images\bgslide.png" />
+    <Content Include="Content\themes\images\false.png" />
+    <Content Include="Content\themes\images\logo.jpg" />
+    <Content Include="Content\themes\images\logo1.jpg" />
+    <Content Include="Content\themes\images\mainmenu.png" />
+    <Content Include="Content\themes\images\next.png" />
+    <Content Include="Content\themes\images\prev.png" />
+    <Content Include="Content\themes\images\slide1.png" />
+    <Content Include="Content\themes\images\slide2.png" />
+    <Content Include="Content\themes\images\slide3.png" />
+    <Content Include="Content\themes\images\slogan.gif" />
+    <Content Include="Content\themes\images\slogan.jpg" />
+    <Content Include="Content\themes\images\true.png" />
+    <Content Include="Content\themes\js\bootstrap-treeview.js" />
+    <Content Include="Content\themes\js\scripts.js" />
+    <Content Include="Country\Add.aspx" />
+    <Content Include="Country\Default.aspx" />
+    <Content Include="Country\Edit.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Director\Add.aspx" />
+    <Content Include="Director\Default.aspx" />
+    <Content Include="Director\Edit.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FileEdit\Edit.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Publics\css\font-awesome.css" />
+    <Content Include="Publics\css\font-awesome.min.css" />
+    <Content Include="Publics\Default.aspx" />
+    <Content Include="Publics\fonts\fontawesome-webfont.svg" />
+    <Content Include="Publics\js\bootstrap-confirmation.js" />
+    <Content Include="Publics\js\Client.js" />
+    <Content Include="Publics\js\jquery.fileupload-video.js" />
+    <Content Include="Role\AddRole.aspx" />
+    <Content Include="Role\Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Publics\.gitignore" />
+    <Content Include="Publics\cors\postmessage.html" />
+    <Content Include="Publics\cors\result.html" />
+    <Content Include="Publics\css\jquery.fileupload-ui.css" />
+    <Content Include="Publics\css\style.css" />
+    <Content Include="Publics\img\loading.gif" />
+    <Content Include="Publics\img\progressbar.gif" />
+    <Content Include="Publics\index.html" />
+    <Content Include="Publics\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Publics\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Publics\js\jquery.fileupload-fp.js" />
+    <Content Include="Publics\js\jquery.fileupload-ui.js" />
+    <Content Include="Publics\js\jquery.fileupload.js" />
+    <Content Include="Publics\js\jquery.iframe-transport.js" />
+    <Content Include="Publics\js\locale.js" />
+    <Content Include="Publics\js\main.js" />
+    <Content Include="Publics\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Publics\server\dotnet\Default.aspx" />
+    <Content Include="Publics\server\gae-go\static\favicon.ico" />
+    <Content Include="Publics\server\gae-go\static\robots.txt" />
+    <Content Include="Publics\server\gae-python\static\favicon.ico" />
+    <Content Include="Publics\server\gae-python\static\robots.txt" />
+    <Content Include="Publics\server\node\.gitignore" />
+    <Content Include="Publics\server\node\public\files\thumbnail\.gitignore" />
+    <Content Include="Publics\server\node\server.js" />
+    <Content Include="Publics\server\node\tmp\.gitignore" />
+    <Content Include="Publics\test\index.html" />
+    <Content Include="Publics\test\test.js" />
+    <Content Include="Role\Permission.aspx" />
+    <Content Include="Uploads\Core\noimg.jpg" />
+    <Content Include="Movie\Add.aspx" />
+    <Content Include="Movie\Default.aspx" />
+    <Content Include="Movie\Edit.aspx" />
+    <Content Include="Video\Add.aspx" />
+    <Content Include="Video\Default.aspx" />
+    <Content Include="Video\Edit.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Content\themes\bootstrap-select\bower.json" />
+    <Content Include="Content\themes\bootstrap-select\composer.json" />
+    <Content Include="Content\themes\bootstrap-select\CONTRIBUTING.md" />
+    <Content Include="Content\themes\bootstrap-select\dist\css\bootstrap-select.css.map" />
+    <Content Include="Content\themes\bootstrap-select\dist\js\bootstrap-select.js.map" />
+    <Content Include="Content\themes\bootstrap-select\docs\docs\examples.md" />
+    <Content Include="Content\themes\bootstrap-select\docs\docs\index.md" />
+    <Content Include="Content\themes\bootstrap-select\docs\docs\methods.md" />
+    <Content Include="Content\themes\bootstrap-select\docs\docs\options.md" />
+    <Content Include="Content\themes\bootstrap-select\docs\mkdocs.yml" />
+    <Content Include="Content\themes\bootstrap-select\js\.jshintrc" />
+    <Content Include="Content\themes\bootstrap-select\less\bootstrap-select.less" />
+    <Content Include="Content\themes\bootstrap-select\less\variables.less" />
+    <Content Include="Content\themes\bootstrap-select\LICENSE" />
+    <Content Include="Content\themes\bootstrap-select\package.json" />
+    <Content Include="Content\themes\bootstrap-select\README.md" />
+    <Content Include="Content\themes\bootstrap-select\sass\bootstrap-select.scss" />
+    <Content Include="Content\themes\bootstrap-select\sass\variables.scss" />
+    <Content Include="Content\themes\bootstrap-switch\.bowerrc" />
+    <Content Include="Content\themes\bootstrap-switch\bower.json" />
+    <Content Include="Content\themes\bootstrap-switch\CHANGELOG.md" />
+    <Content Include="Content\themes\bootstrap-switch\CNAME" />
+    <Content Include="Content\themes\bootstrap-switch\coffeelint.json" />
+    <Content Include="Content\themes\bootstrap-switch\composer.json" />
+    <Content Include="Content\themes\bootstrap-switch\CONTRIBUTING.md" />
+    <Content Include="Content\themes\bootstrap-switch\docs\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\themes\bootstrap-switch\docs\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\themes\bootstrap-switch\docs\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\themes\bootstrap-switch\gulpfile.coffee" />
+    <Content Include="Content\themes\bootstrap-switch\karma.json" />
+    <Content Include="Content\themes\bootstrap-switch\LICENSE" />
+    <Content Include="Content\themes\bootstrap-switch\package.json" />
+    <Content Include="Content\themes\bootstrap-switch\README.md" />
+    <Content Include="Content\themes\bootstrap-switch\src\coffee\bootstrap-switch.coffee" />
+    <Content Include="Content\themes\bootstrap-switch\src\coffee\bootstrap-switch.tests.coffee" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\coffee\main.coffee" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\documentation-2.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\events.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\examples.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\index.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\main.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\methods.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\jade\options.jade" />
+    <Content Include="Content\themes\bootstrap-switch\src\docs\less\main.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap2\bootstrap-switch.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap2\build.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap2\mixins.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap2\variables.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\bootstrap-switch.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\build.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\alerts.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\background-variant.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\border-radius.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\buttons.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\center-block.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\clearfix.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\forms.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\gradients.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\grid-framework.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\grid.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\hide-text.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\image.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\labels.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\list-group.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\nav-divider.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\nav-vertical-align.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\opacity.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\pagination.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\panels.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\progress-bar.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\reset-filter.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\reset-text.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\resize.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\responsive-visibility.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\size.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\tab-focus.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\table-row.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\text-emphasis.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\text-overflow.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\mixins\vendor-prefixes.less" />
+    <Content Include="Content\themes\bootstrap-switch\src\less\bootstrap3\variables.less" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\themes\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\themes\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\themes\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\themes\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\themes\bootstrap\js\bower.json" />
+    <Content Include="Content\themes\bootstrap\js\jquery.bxslider.zip" />
+    <Content Include="Content\themes\bootstrap\js\readme.md" />
+    <Content Include="Content\themes\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\themes\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\themes\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\themes\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\themes\fonts\FontAwesome.otf" />
+    <Content Include="Content\themes\less\animated.less" />
+    <Content Include="Content\themes\less\bordered-pulled.less" />
+    <Content Include="Content\themes\less\core.less" />
+    <Content Include="Content\themes\less\fixed-width.less" />
+    <Content Include="Content\themes\less\font-awesome.less" />
+    <Content Include="Content\themes\less\icons.less" />
+    <Content Include="Content\themes\less\larger.less" />
+    <Content Include="Content\themes\less\list.less" />
+    <Content Include="Content\themes\less\mixins.less" />
+    <Content Include="Content\themes\less\path.less" />
+    <Content Include="Content\themes\less\rotated-flipped.less" />
+    <Content Include="Content\themes\less\stacked.less" />
+    <Content Include="Content\themes\less\variables.less" />
+    <Content Include="Content\themes\scss\font-awesome.scss" />
+    <Content Include="Content\themes\scss\_animated.scss" />
+    <Content Include="Content\themes\scss\_bordered-pulled.scss" />
+    <Content Include="Content\themes\scss\_core.scss" />
+    <Content Include="Content\themes\scss\_fixed-width.scss" />
+    <Content Include="Content\themes\scss\_icons.scss" />
+    <Content Include="Content\themes\scss\_larger.scss" />
+    <Content Include="Content\themes\scss\_list.scss" />
+    <Content Include="Content\themes\scss\_mixins.scss" />
+    <Content Include="Content\themes\scss\_path.scss" />
+    <Content Include="Content\themes\scss\_rotated-flipped.scss" />
+    <Content Include="Content\themes\scss\_stacked.scss" />
+    <Content Include="Content\themes\scss\_variables.scss" />
+    <Content Include="Publics\package.json" />
+    <Content Include="Publics\README.md" />
+    <Content Include="Publics\server\gae-go\app.yaml" />
+    <Content Include="Publics\server\gae-go\app\main.go" />
+    <Content Include="Publics\server\gae-go\resize\resize.go" />
+    <Content Include="Publics\server\gae-python\app.yaml" />
+    <Content Include="Publics\server\gae-python\main.py" />
+    <Content Include="Publics\server\node\package.json" />
+    <Content Include="Publics\server\php\files\.htaccess" />
+    <Content Include="Publics\server\php\index.php" />
+    <Content Include="Publics\server\php\thumbnails\.htaccess" />
+    <Content Include="Publics\server\php\upload.class.php" />
+    <Content Include="Publics\fonts\fontawesome-webfont.eot" />
+    <Content Include="Publics\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Publics\fonts\fontawesome-webfont.woff" />
+    <Content Include="Publics\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Publics\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\VMC-publish.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Accountinfo.aspx.cs">
+      <DependentUpon>Accountinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Accountinfo.aspx.designer.cs">
+      <DependentUpon>Accountinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Changepass.aspx.cs">
+      <DependentUpon>Changepass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Changepass.aspx.designer.cs">
+      <DependentUpon>Changepass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actor\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actor\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actor\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actor\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Actor\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actor\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Category\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category\AddM.aspx.cs">
+      <DependentUpon>AddM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\AddM.aspx.designer.cs">
+      <DependentUpon>AddM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category\Movie.aspx.cs">
+      <DependentUpon>Movie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\Movie.aspx.designer.cs">
+      <DependentUpon>Movie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Category\Video.aspx.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\Video.aspx.designer.cs">
+      <DependentUpon>Video.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\FillData.cs" />
+    <Compile Include="Country\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Country\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Country\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Country\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Country\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Country\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Director\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Director\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Director\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Director\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Director\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Director\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EO\LoginEO.cs" />
+    <Compile Include="EO\VideoEO.cs" />
+    <Compile Include="FileEdit\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileEdit\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CountryModel.cs" />
+    <Compile Include="Model\FileModel.cs" />
+    <Compile Include="Model\MovieModel.cs" />
+    <Compile Include="Model\RoleModel.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Publics\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Publics\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Role\AddRole.aspx.cs">
+      <DependentUpon>AddRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Role\AddRole.aspx.designer.cs">
+      <DependentUpon>AddRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Role\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Role\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ActorModel.cs" />
+    <Compile Include="Model\CateModel.cs" />
+    <Compile Include="Model\Config.cs" />
+    <Compile Include="Model\DeviceModel.cs" />
+    <Compile Include="Model\DirectorModel.cs" />
+    <Compile Include="Model\OptionVideoModel.cs" />
+    <Compile Include="Model\TagModel.cs" />
+    <Compile Include="Model\VideoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publics\server\dotnet\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Publics\server\dotnet\UploadHandler.cs" />
+    <Compile Include="Role\Permission.aspx.cs">
+      <DependentUpon>Permission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Role\Permission.aspx.designer.cs">
+      <DependentUpon>Permission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movie\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movie\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movie\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Video\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Video\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Video\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Video\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Video\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Video\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Publics\server\dotnet\files\" />
+    <Folder Include="Uploads\Actor\IMGS\" />
+    <Folder Include="Uploads\Category\IMGS\" />
+    <Folder Include="Uploads\Director\IMGS\" />
+    <Folder Include="Uploads\Movie\IMGS\Avatar\" />
+    <Folder Include="Uploads\Movie\IMGS\Poster\" />
+    <Folder Include="Uploads\Movie\VODS\" />
+    <Folder Include="Uploads\Users\IMGS\" />
+    <Folder Include="Uploads\Video\IMGS\" />
+    <Folder Include="Uploads\Video\VODS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49020</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49020/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

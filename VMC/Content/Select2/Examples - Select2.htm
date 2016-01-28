@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html idmmzcc-ext-docid="765675520"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  Examples - Select2
+</title>
+
+                                        <script type="text/javascript" src="../themes/bootstrap-switch/docs/js/jquery.min.js"></script>
+<script type="text/javascript" src="select2.js"></script>
+                                        <script type="text/javascript" src="../themes/bootstrap-switch/docs/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="prettify.js"></script>
+
+
+<style class="anchorjs"></style><link href="../themes/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="select2.css" type="text/css" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+    
+
+
+    <script type="text/javascript" src="placeholders.js"></script>
+<script type="text/javascript" src="es.js"></script>
+
+
+
+
+
+<div class="container s2-docs-container">
+  <div class="row">
+    <div class="col-md-12" role="main">
+
+      <section>
+
+
+
+  <div class="s2-example">
+    <p>
+      <select aria-hidden="true" tabindex="-1" class="js-example-basic-multiple js-states form-control select2-hidden-accessible" multiple="multiple">
+  <optgroup label="Alaskan/Hawaiian Time Zone">
+    <option selected="selected" value="AK">Alaska</option>
+    <option value="HI">Hawaii</option>
+  </optgroup>
+  <optgroup label="Pacific Time Zone">
+    <option value="CA">California</option>
+    <option value="NV">Nevada</option>
+    <option value="OR">Oregon</option>
+    <option value="WA">Washington</option>
+  </optgroup>
+  <optgroup label="Mountain Time Zone">
+    <option value="AZ">Arizona</option>
+    <option value="CO">Colorado</option>
+    <option value="ID">Idaho</option>
+    <option value="MT">Montana</option>
+    <option value="NE">Nebraska</option>
+    <option value="NM">New Mexico</option>
+    <option value="ND">North Dakota</option>
+    <option value="UT">Utah</option>
+    <option value="WY">Wyoming</option>
+  </optgroup>
+  <optgroup label="Central Time Zone">
+    <option value="AL">Alabama</option>
+    <option value="AR">Arkansas</option>
+    <option value="IL">Illinois</option>
+    <option value="IA">Iowa</option>
+    <option value="KS">Kansas</option>
+    <option value="KY">Kentucky</option>
+    <option value="LA">Louisiana</option>
+    <option value="MN">Minnesota</option>
+    <option value="MS">Mississippi</option>
+    <option value="MO">Missouri</option>
+    <option value="OK">Oklahoma</option>
+    <option value="SD">South Dakota</option>
+    <option value="TX">Texas</option>
+    <option value="TN">Tennessee</option>
+    <option value="WI">Wisconsin</option>
+  </optgroup>
+  <optgroup label="Eastern Time Zone">
+    <option value="CT">Connecticut</option>
+    <option value="DE">Delaware</option>
+    <option value="FL">Florida</option>
+    <option value="GA">Georgia</option>
+    <option value="IN">Indiana</option>
+    <option value="ME">Maine</option>
+    <option value="MD">Maryland</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NJ">New Jersey</option>
+    <option value="NY">New York</option>
+    <option value="NC">North Carolina</option>
+    <option value="OH">Ohio</option>
+    <option value="PA">Pennsylvania</option>
+    <option value="RI">Rhode Island</option>
+    <option value="SC">South Carolina</option>
+    <option value="VT">Vermont</option>
+    <option value="VA">Virginia</option>
+    <option value="WV">West Virginia</option>
+  </optgroup>
+</select>
+    </p>
+  </div>
+
+<script type="text/x-example-code" class="js-code-multiple">
+$(".js-example-basic-multiple").select2();
+</script>
+
+</section>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  var $states = $(".js-source-states");
+  var statesOptions = $states.html();
+  $states.remove();
+
+  $(".js-states").append(statesOptions);
+
+  $("[data-fill-from]").each(function () {
+    var $this = $(this);
+
+    var codeContainer = $this.data("fill-from");
+    var $container = $(codeContainer);
+
+    var code = $.trim($container.html());
+
+    $this.text(code);
+    $this.addClass("prettyprint linenums");
+  });
+
+  prettyPrint();
+
+  $.fn.select2.amd.require([
+    "select2/core",
+    "select2/utils",
+    "select2/compat/matcher"
+  ], function (Select2, Utils, oldMatcher) {
+    var $basicSingle = $(".js-example-basic-single");
+    var $basicMultiple = $(".js-example-basic-multiple");
+    var $limitMultiple = $(".js-example-basic-multiple-limit");
+
+    var $dataArray = $(".js-example-data-array");
+    var $dataArraySelected = $(".js-example-data-array-selected");
+
+    var data = [
+      { id: 0, text: 'enhancement' },
+      { id: 1, text: 'bug' },
+      { id: 2, text: 'duplicate' },
+      { id: 3, text: 'invalid' },
+      { id: 4, text: 'wontfix' }
+    ];
+
+    var $ajax = $(".js-example-data-ajax");
+
+    var $disabledResults = $(".js-example-disabled-results");
+
+    var $tags = $(".js-example-tags");
+
+    var $matcherStart = $('.js-example-matcher-start');
+
+    var $diacritics = $(".js-example-diacritics");
+    var $language = $(".js-example-language");
+
+    $.fn.select2.defaults.set("width", "100%");
+
+    $basicSingle.select2();
+    $basicMultiple.select2();
+    $limitMultiple.select2({
+      maximumSelectionLength: 2
+    });
+
+    function formatState (state) {
+      if (!state.id) {
+        return state.text;
+      }
+      var $state = $(
+        '<span>' +
+          '<img src="vendor/images/flags/' +
+            state.element.value.toLowerCase() +
+          '.png" class="img-flag" /> ' +
+          state.text +
+        '</span>'
+      );
+      return $state;
+    };
+
+
+
+
+  
+
+    $(".js-example-disabled").select2();
+    $(".js-example-disabled-multi").select2();
+
+    $(".js-example-responsive").select2();
+
+    $disabledResults.select2();
+
+    $(".js-example-programmatic").select2();
+    $(".js-example-programmatic-multi").select2();
+
+    $eventSelect.select2();
+
+    $tags.select2({
+      tags: ['red', 'blue', 'green']
+    });
+
+    $(".js-example-tokenizer").select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+    });
+
+
+  });
+</script>
+
+
+    
+
+
+  
+
+</body></html>
